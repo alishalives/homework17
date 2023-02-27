@@ -32,13 +32,16 @@ class Director(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
 
+
 class Genre(db.Model):
     __tablename__ = 'genre'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
 
-db.drop_all()
-db.create_all()
+
+with app.app_context():
+    db.drop_all()
+    db.create_all()
 
 # -------------------------------------------------------
 data = {
